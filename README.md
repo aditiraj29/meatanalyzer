@@ -1,107 +1,173 @@
-# Poultry-Meat-Freshness-Classification-with-Transfer-Learning-using-ResNet-Architecture
-The utilization of the ResNet architecture and **Transfer Learning** methods to classify **Poultry Meat Freshness images** into two categories, namely **Fresh** and **Rotten**.
+# 🍗 Poultry Meat Freshness Classification
 
-## About The Project
+An AI-powered web application for classifying poultry meat freshness using deep learning with ResNet transfer learning.
 
-* In this repository, we leverage the power of the **Residual Networks (ResNet)** architecture and **Transfer Learning** techniques to accurately classify the freshness of poultry meat. By utilizing pre-trained ResNet weights, sourced from **ImageNet**, our model gains the ability to make fine-grained distinctions in poultry meat freshness.
-* The pre-trained weights from the **ImageNet** dataset, which includes a wide range of object categories, are used to enhance the model's ability to recognize and classify fresh and rotten poultry meat images.
-* This repository provides a comprehensive implementation of the classification process and serves as a valuable resource for exploring the world of Transfer Learning with ResNet architecture.
-* Key Features
-  * Implementation of Transfer Learning with ResNet architecture.
-  * Classification of poultry meat freshness into different categories.
-  * Utilizes a pre-trained model to enhance classification accuracy.
-  * Implement hyperparameter tuning using Grid Search to obtain the best model/ set of parameters.
-  * Helps in maintaining food safety and quality standards.
+![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
+![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange.svg)
+![Streamlit](https://img.shields.io/badge/Streamlit-1.28+-red.svg)
+![License](https://img.shields.io/badge/License-MIT-green.svg)
 
-## Technology Used
-* Python
-* Numpy
-* Pandas
-* Matplotlib
-* Scikit-learn
-* Keras
-* Tensorflow
+## 📋 Overview
 
-## Dataset Used
-  - In this project, we utilize sets of images depicting fresh and spoiled poultry meat sourced from the **Fresh and rotten poultry meat datasets**, accessible at: [Fresh and rotten poultry meat datasets | Kaggle](https://www.kaggle.com/calvinsama/fresh-and-rotten-poultry-meat-datasets).
-  - The amount of data used in this project:
-    - Training data:
-      - Fresh (Segar): 500 images
-      - Rotten (Busuk): 500 images
-    - Testing data
-      - Fresh (Segar): 150 images
-      - Rotten (Busuk): 150 images
-  - Sample Images
-    - Fresh (Segar)
-      1 | 2 | 3 | 4 | 5
-      :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
-      ![Segar 1](dataset_citra_dada_ayam/dataset%20200x200/training/segar_0001.jpg) | ![Segar 2](dataset_citra_dada_ayam/dataset%20200x200/training/segar_0010.jpg) | ![Segar 3](dataset_citra_dada_ayam/dataset%20200x200/training/segar_0100.jpg) | ![Segar 4](dataset_citra_dada_ayam/dataset%20200x200/training/segar_0201.jpg) | ![Segar 5](dataset_citra_dada_ayam/dataset%20200x200/training/segar_0300.jpg)
-    - Rotten (Busuk)
-      1 | 2 | 3 | 4 | 5
-      :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
-      ![Busuk 1](dataset_citra_dada_ayam/dataset%20200x200/training/busuk_0003.jpg) | ![Busuk 2](dataset_citra_dada_ayam/dataset%20200x200/training/busuk_0010.jpg) | ![Busuk 3](dataset_citra_dada_ayam/dataset%20200x200/training/busuk_0100.jpg) |  ![Busuk 4](dataset_citra_dada_ayam/dataset%20200x200/training/busuk_0200.jpg) |  ![Busuk 5](dataset_citra_dada_ayam/dataset%20200x200/training/busuk_0300.jpg)
+This project uses a ResNet-based deep learning model to classify poultry meat as either **Fresh (Segar)** or **Spoiled (Busuk)**. The application features a user-friendly Streamlit interface for real-time predictions.
 
-## Workflow
-- Data Preparation
-- Label Encoding
-- Data Preprocessing & Data Augmentation
-- Data Splitting
-- Model Building
-- Model Training & Hyperparameters Tuning
-- Model Testing & Evaluation
+## ✨ Features
 
-## Algorithms/ Methods
-* This project applies **Transfer Learning** methods by utilizing the **ResNet architecture** with pre-trained weights sourced from **ImageNet**, encompassing around 1000 object categories.
-* The training process uses a **fine-tuned method**, which allows all of the layers to update their weights during the training process.
-* **Parameters** (Fixed):
-  * Batch = 10 (100 steps per epoch, because the number of training data is 1000)
-  * Optimizer = Mini Batch Gradient Descent
-  * Loss/ Cost Function = Binary Cross Entropy
-  * Metrics = Accuracy
-* **Hyperparameters** (Fine Tuned with Grid Search):
-  * Epoch:
-    * 100
-    * 200
-  * Learning rate:
-    * 0.0001
-    * 0.0003
-    * 0.0007
-  * Momentum:
-    * 0.0
-    * 0.9
+- 🎯 **High Accuracy**: ~83% classification accuracy
+- 🖼️ **Real-time Predictions**: Upload images and get instant results
+- 📊 **Confidence Scores**: Visual confidence metrics with progress bars
+- 🎨 **Beautiful UI**: Modern, responsive design with color-coded results
+- 💡 **Safety Recommendations**: Actionable advice based on predictions
+- 🔄 **Transfer Learning**: Leverages pre-trained ResNet50 architecture
 
-## Model Evaluation
-  Graph of Epoch & Accuracy (100 epoch) | Graph of Epoch & Accuracy (200 epoch)
-  :-------------------------:|:-------------------------:
-  ![images/accuracy_epoch_100.png](images/accuracy_epoch_100.png)  |  ![images/accuracy_epoch_200.png](images/accuracy_epoch_200.png)
-  Graph of Loss & Accuracy (100 epoch) | Graph of Loss & Accuracy (200 epoch)
-  ![images/loss_epoch_100.png](images/loss_epoch_100.png)  |  ![images/loss_epoch_200.png](images/loss_epoch_200.png)
+## 🚀 Demo
 
-  - Validation accuracy scores at **Epoch 100**:
-    - resnet_lr1e-4_m0_e100: 92.33
-    - resnet_lr3e-4_m0_e100: **95.33**
-    - resnet_lr7e-4_m0_e100: 94.67
-    - resnet_lr1e-4_m09_e100: 93.67
-    - resnet_lr3e-4_m09_e100: 92.67
-    - resnet_lr7e-4_m09_e100: 92.0
-  - Validation accuracy scores at **Epoch 200**:
-    - resnet_lr1e-4_m0_e200: 93.0
-    - resnet_lr3e-4_m0_e200: 95.0
-    - resnet_lr7e-4_m0_e200: **95.67**
-    - resnet_lr1e-4_m09_e200: 91.0
-    - resnet_lr3e-4_m09_e200: 91.67
-    - resnet_lr7e-4_m09_e200: 90.67
+![App Screenshot](images/demo.png)
 
-## Publication
-* [Cendani, L. M., Pangestu, M. A., & Muria, F. (2021). "*Classification of Freshness Quality of Broiler Chicken Breast with Transfer Learning Using ResNet, Inception, and Xception Architectures*".](paper/Klasifikasi%20Kualitas%20Kesegaran%20Daging%20Dada%20Ayam%20Broiler%20dengan%20Transfer%20Learning%20M.pdf) (unpublished)
+## 📁 Project Structure
 
-## Contributors
-* [Linggar Maretva Cendani](https://github.com/LinggarM) - [linggarmc@gmail.com](mailto:linggarmc@gmail.com) (ResNet)
-* Michael Axel Pangestu (Inception)
-* Fatah Muria (Xception)
+```
+Poultry-Meat-Freshness-Classification/
+├── app.py                          # Streamlit web application
+├── train_new_model.py              # Model training script
+├── test_actual_predictions.py      # Model testing script
+├── models/
+│   ├── model_trained_new.keras     # Trained model (Keras format)
+│   └── model_trained_new.h5        # Trained model (H5 format)
+├── notebooks/
+│   └── Topsus_Poultry_Meat_ResNet.ipynb  # Training notebook
+├── training_history/               # Training logs and metrics
+├── requirements.txt                # Python dependencies
+├── .gitignore                      # Git ignore rules
+└── README.md                       # Project documentation
+```
 
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+## 🛠️ Installation
 
-## Acknowledgments
-  - Fresh and rotten poultry meat datasets: [https://www.kaggle.com/calvinsama/fresh-and-rotten-poultry-meat-datasets](https://www.kaggle.com/calvinsama/fresh-and-rotten-poultry-meat-datasets).
+### Prerequisites
+
+- Python 3.8 or higher
+- pip package manager
+
+### Setup
+
+1. **Clone the repository**
+```bash
+git clone https://github.com/YOUR_USERNAME/Poultry-Meat-Freshness-Classification.git
+cd Poultry-Meat-Freshness-Classification
+```
+
+2. **Install dependencies**
+```bash
+pip install -r requirements.txt
+```
+
+3. **Download the dataset** (if training from scratch)
+- Place your dataset in `dataset_citra_dada_ayam/dataset 200x200/training/`
+- Images should be named with prefixes: `busuk_*.jpg` for spoiled, `segar_*.jpg` for fresh
+
+## 🎮 Usage
+
+### Running the Web Application
+
+```bash
+streamlit run app.py
+```
+
+Or using Python module:
+```bash
+python -m streamlit run app.py
+```
+
+The app will open in your browser at `http://localhost:8501`
+
+### Training a New Model
+
+```bash
+python train_new_model.py
+```
+
+### Testing Model Predictions
+
+```bash
+python test_actual_predictions.py
+```
+
+## 🧠 Model Architecture
+
+- **Base Model**: ResNet50 (pre-trained on ImageNet)
+- **Custom Layers**:
+  - GlobalAveragePooling2D
+  - Dropout (0.5)
+  - Dense (128 units, ReLU activation)
+  - Dropout (0.3)
+  - Dense (1 unit, Sigmoid activation)
+
+## 📊 Model Performance
+
+- **Training Accuracy**: ~97%
+- **Validation Accuracy**: ~83%
+- **Dataset**: 1000 images (500 fresh + 500 spoiled)
+- **Training Split**: 80% training, 20% validation
+- **Epochs**: 10
+- **Optimizer**: Adam (learning rate: 0.0001)
+
+### Classification Threshold
+
+- **Optimal Threshold**: 0.5445
+- **Busuk (Spoiled)**: Prediction < 0.5445
+- **Segar (Fresh)**: Prediction ≥ 0.5445
+
+## 🖼️ How It Works
+
+1. **Upload Image**: User uploads a poultry meat image
+2. **Preprocessing**: Image is resized to 224x224 and normalized
+3. **Prediction**: ResNet model processes the image
+4. **Classification**: Output is compared against threshold
+5. **Display Results**: Shows classification with confidence score
+
+## 📦 Dependencies
+
+- TensorFlow 2.x
+- Streamlit
+- NumPy
+- Pillow
+- h5py
+
+See `requirements.txt` for complete list.
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👥 Authors
+
+- **Your Name** - *Initial work*
+
+## 🙏 Acknowledgments
+
+- ResNet architecture by Microsoft Research
+- Dataset: Poultry Meat Freshness Dataset
+- Built with Streamlit and TensorFlow
+
+## 📧 Contact
+
+For questions or feedback, please open an issue on GitHub.
+
+## ⚠️ Disclaimer
+
+This is an AI-based educational tool. Always consult food safety experts and follow proper food handling guidelines. Do not rely solely on this tool for food safety decisions.
+
+---
+
+**Made with ❤️ and 🤖 AI**
