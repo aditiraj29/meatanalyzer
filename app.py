@@ -100,17 +100,17 @@ def predict_freshness(model, image):
     
     threshold = 0.5445
     
-    # FLIP THE LOGIC
-    if raw_pred >= threshold:
+    # CORRECT LOGIC: Lower values = Busuk, Higher values = Segar
+    if raw_pred < threshold:
         label = "Busuk (Spoiled)"
         status = "spoiled"
         # Scale confidence: further from threshold = higher confidence
-        confidence_percent = min(95, 50 + (raw_pred - threshold) * 1000)
+        confidence_percent = min(95, 50 + (threshold - raw_pred) * 1000)
     else:
         label = "Segar (Fresh)"
         status = "fresh"
         # Scale confidence: further from threshold = higher confidence
-        confidence_percent = min(95, 50 + (threshold - raw_pred) * 1000)
+        confidence_percent = min(95, 50 + (raw_pred - threshold) * 1000)
     
     return label, status, confidence_percent
 
