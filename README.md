@@ -152,22 +152,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👥 Authors
 
-- **Your Name** - *Initial work*
+- **Aditi Raj** - *Initial work*
 
 ## 🙏 Acknowledgments
 
 - ResNet architecture by Microsoft Research
 - Dataset: Poultry Meat Freshness Dataset
 - Built with Streamlit and TensorFlow
-
-## 📧 Contact
-
-For questions or feedback, please open an issue on GitHub.
-
-## ⚠️ Disclaimer
-
-This is an AI-based educational tool. Always consult food safety experts and follow proper food handling guidelines. Do not rely solely on this tool for food safety decisions.
-
----
-
-**Made with ❤️ and 🤖 AI**
